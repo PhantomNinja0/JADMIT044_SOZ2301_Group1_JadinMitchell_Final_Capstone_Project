@@ -152,7 +152,7 @@ The project is deployed to a custom Netlify URL: [https://your-netlify-url.netli
 
 ## Usage
 
-[Include instructions on how to use the app, how to browse shows, play episodes, track favorites, etc.]
+Navigate inside folder, open terminal, and then use npm install followed by npm run dev to use this project.
 
 ## Features
 
