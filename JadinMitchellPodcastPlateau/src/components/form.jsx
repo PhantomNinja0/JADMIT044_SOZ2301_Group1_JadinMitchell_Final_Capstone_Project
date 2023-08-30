@@ -4,10 +4,10 @@ import "./styles.css"
 
 export default function Authentication(props){
 
-const {email ,setEmail ,password,setPassword,isAuthenticated,setIsAuthenticated} = props
+const {email, setEmail, password, setPassword, isAuthenticated, setIsAuthenticated} = props
 
 const handleSubmit = () =>{
-    if(email && password  ){
+    if(email && password){
         setIsAuthenticated(true)
 
         console.log('isAuthenticated',isAuthenticated)
@@ -21,14 +21,7 @@ const handleSubmit = () =>{
 
 return (
     <>
-      <div
-        style={{
-          minHeight: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div className='form-div'>
         <div className="vid-div">
           <video class="video-slider active" autoPlay muted loop>
             <source src={vidBG} type="video/mp4"/>
@@ -37,7 +30,7 @@ return (
 
         <div className='container'>
         <div className='top'>
-          <img className='' src="./logo.png" width= '80px' />
+          <img className='' src="./logo.png" width= '150px' />
           <h1 className ='main-heading'>Podcast Plateau</h1>
         </div>
         <form
