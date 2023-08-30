@@ -14,7 +14,6 @@ Welcome to the Podcast App Capstone Project for the CodeSpace Software Developme
   - [Deployment](#deployment)
   - [Usage](#usage)
   - [Features](#features)
-  - [Technologies Used](#technologies-used)
   - [Contributing](#contributing)
   - [License](#license)
 
@@ -148,11 +147,11 @@ To run the project locally, follow these steps:
 
 ## Deployment
 
-The project is deployed to a custom Netlify URL: [https://your-netlify-url.netlify.app](https://your-netlify-url.netlify.app)
+The project is deployed to a custom Netlify URL: [podcast-plateau.netlify.app]
 
 ## Usage
 
-Navigate inside folder, open terminal, and then use npm install followed by npm run dev to use this project.
+[Include instructions on how to use the app, how to browse shows, play episodes, track favorites, etc.]
 
 ## Features
 
