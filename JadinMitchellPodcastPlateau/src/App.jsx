@@ -3,7 +3,7 @@ import './index.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Favorite from './components/Favorite';
-import Preview from './components/Preview';
+import Preview from './components/Details';
 import History from './components/History';
 import Authentication from './components/form';
 
@@ -17,6 +17,9 @@ function App() {
     JSON.parse(localStorage.getItem('favoriteEpisodes')) || []
   );
 
+  const [history, setHistory] = useState(
+    JSON.parse(localStorage.getItem('historyEpisodes')) || []
+  );
   // Function to handle navigation to different pages
   const handleNavigation = (page) => {
     setCurrentPage(page);
@@ -51,6 +54,13 @@ const [isAuthenticated , setIsAuthenticated] = useState(false)
   const handleFavoriteClick = (episode) => {
     if (!favorites.some((fav) => fav.id === episode.id)) {
       setFavorites((prevFavorites) => [...prevFavorites, episode]);
+    }
+  };
+
+  const handleHistoryClick = (episode) => {
+    if (!history.some((hist) => hist.id === episode.id)) {
+      console.log(history);
+      setHistory((prevHistory) => [...prevHistory, episode]);
     }
   };
 
@@ -95,7 +105,7 @@ const [isAuthenticated , setIsAuthenticated] = useState(false)
       <br />
       <br />
       {currentPage === 'home' && (
-        <Home onPodcastClick={setSelectedPodcast} selectedPodcast={selectedPodcast} />
+        <Home onPodcastClick={setSelectedPodcast} selectedPodcast={selectedPodcast} onNavigate={handleNavigation}/>
       )}
       {currentPage === 'favorite' && (
         <Favorite favorites={favorites} setFavorites={setFavorites} />
@@ -106,10 +116,10 @@ const [isAuthenticated , setIsAuthenticated] = useState(false)
           onFavoriteClick={handleFavoriteClick}
           onEpisodeComplete={handleEpisodeComplete}
           onEpisodeProgress={handleEpisodeProgress}
-         
+          onListenClick={handleHistoryClick}
         />
       )}
-      {currentPage === 'history' && <History />}
+      {currentPage === 'history' && <History history={history} setHistory={setHistory}/>}
      
      </>}
     
@@ -120,7 +130,3 @@ const [isAuthenticated , setIsAuthenticated] = useState(false)
 }
 
 export default App;
-
-//Manages overall app functionality and navigation.
-//Uses the Navbar to help users navigate between different sections.
-//Provides a seamless experience for users to explore podcasts, manage favorites, and track listening history.
