@@ -1,7 +1,16 @@
-/* CSS for Navbar */
 
+body{
+  margin: 0;
+  padding: 0;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:  "Ebrima", sans-serif;
+}
 .navbar-container {
-  background-color: #222; /* Darker background color */
+  background-color: #222;
   position: fixed;
   top: 0;
   left: 0;
@@ -9,38 +18,46 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 70px;
-  padding: 0 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slightly darker box-shadow */
+  height: 100px;
+  padding: 0 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 99;
 }
 
-.navbar-container button {
-  background-color: #444; /* Darker button color */
-  color: #eee; /* Light text color */
+.navbutton {
+  background-color: rgb(230, 0, 153);
+  color:rgb(255, 255, 255);
   border: none;
-  padding: 10px 20px;
+  width: 150px;
+  border-radius: 5px;
+  padding: 10px 10px;
   font-size: 16px;
+  margin-left: 50px;
+  margin-right: 50px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .navbar-container button:hover {
+  transition: 0.2s ease-in-out;
+  scale: 1.1;
   color: #202622;
-  background-color: #ffffff; /* Slightly lighter button color on hover */
+  background-color: #ffffff;
 }
 
 /* ===========================================================================================================================*/
 /*Home.css*/
 
-/* Main container for the Home component */
+
 .home-container {
+  margin-top: 60px;
   text-align: center;
-  padding: 20px;
-  background-color: #333; /* Dark background color */
+  padding: 10px;
+  background-color: rgb(0, 0, 0); /* Dark background color */
   color: #eee; /* Light text color */
 }
 
-/* Header style */
+
 .main-heading {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: black;
@@ -55,89 +72,93 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Show list style */
+
 .show-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  background-color: rgb(6, 186, 18);
+  background-image: linear-gradient(rgb(6, 186, 18), rgb(228, 102, 222), rgb(6, 186, 18), rgb(228, 102, 222));
+  background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
+  padding: 20px 20px;
+  gap: 20px;
+  width: 100%;
+  justify-items: center;
 }
 
-/* Show link style */
 .show-link {
   text-decoration: none;
   color: #eee;
 }
 
-/* Show info container style */
 .show-info {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  border: 1px solid #555; /* Darker border color */
+  border: 1px solid #555;
   border-radius: 8px;
   padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly darker box-shadow with animation */
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 200px;
+  min-width: 355px;
 }
 
-/* Show image style */
 .show-image {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
   border-radius: 8px;
   margin-right: 20px;
 }
 
-/* Show title style */
 .show-title {
   font-size: 20px;
   margin-bottom: 5px;
 }
 
-/* Show description style */
 .show-description {
   font-size: 16px;
 }
 
-/* Show info hover effect */
 .show-info:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Slightly darker box-shadow on hover with more depth */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
 }
 
 /*=========================================================================================================================== */
-
 /* Preview.css */
+
 .preview-container {
-  margin: 10px;
-  padding: 15px;
-  border: 1px solid #555; /* Darker border color */
-  border-radius: 8px;
-  background-color: #666; /* Darker background color */
+  margin-top: 55px;
+  padding: 30px 100px;
+  background-color: rgb(0, 0, 0);
+  min-height: 89vh;
 }
 
 h2 {
   font-size: 24px;
   margin-bottom: 10px;
+  color: white;
 }
 
 h3 {
   font-size: 20px;
+  margin-top: 10px;
   margin-bottom: 5px;
-  color: #aaa; /* Lighter text color */
+  color: rgb(255, 255, 255);
 }
 
 h4 {
   font-size: 18px;
   margin-bottom: 5px;
-  color: #ccc; /* Lighter text color */
+  color: #ccc; 
 }
 
 p {
   font-size: 16px;
   margin-bottom: 10px;
-  color: #bbb; /* Lighter text color */
+  color: #bbb; 
 }
 
 ul {
@@ -149,22 +170,39 @@ li {
   margin-bottom: 10px;
 }
 
-button {
-  background-color: #555; /* Darker button color */
+.seasonbtn {
+  background-color: #555;
+  background-image: linear-gradient(rgb(6, 186, 18), rgb(228, 102, 222));
   border: none;
-  color: #eee; /* Light text color */
+  color: #eee; 
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.2s ease;
   display: block;
-  margin: 20px auto; /* Center align the buttons */
+  margin: 20px auto; 
   height: 50%;
-  width: 50%; /* Set a fixed width for the buttons */
+  width: 50%;
+}
+.favebtn {
+  background-color: #555;
+  background-image: linear-gradient(rgb(6, 186, 18), rgb(228, 102, 222));
+  border: none;
+  color: #eee;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: block;
+  margin: 20px auto; 
+  height: 50%;
+  width: 50%; 
 }
 
-button:hover {
-  background-color: #777; /* Slightly lighter button color on hover */
+.favebtn:hover{
+  font-size: 20px;
+  transition: 0.2s ease-in-out;
+  color: #202622;
 }
 
 .show-image {
@@ -180,35 +218,36 @@ audio {
   margin-top: 10px;
 }
 
-/* Show the episodes list when the button is clicked */
+
 .episodes-list {
   display: none;
   padding: 10px;
-  border: 1px solid #555; /* Darker border color */
   border-radius: 8px;
-  background-color: #777; /* Slightly darker background color */
 }
 
-/* Add a class to show the episodes list */
+.single-ep {
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #585858;
+}
+
+
 .show-episodes {
   display: block !important;
 }
 
-/* Rest of your CSS code... */
-
-
-/* Home.css */
 
 .home-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Move content to the left */
+  align-items: flex-start;
   padding: 20px;
 }
 
 .search-sort-container {
   display: flex;
-  justify-content: flex-end; /* Move sort buttons to the right */
+  justify-content: flex-end;
   margin-bottom: 20px;
 }
 
