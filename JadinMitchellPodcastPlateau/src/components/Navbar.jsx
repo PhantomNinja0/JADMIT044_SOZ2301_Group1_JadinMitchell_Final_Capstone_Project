@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import logo from '../../public/logo.png'
 
 // Define the Navbar component
 const Navbar = ({ onNavigate }) => {
@@ -11,14 +12,17 @@ const Navbar = ({ onNavigate }) => {
   // Render the Navbar component
   return (
     <div className="navbar-container">
+      <div><img className='logo' src={logo} alt="" /></div>
       {/* Button to navigate to the 'home' page */}
-      <button onClick={() => handleNavigation('home')}>Home</button>
-      {/* Button to navigate to the 'favorite' page */}
-      <button onClick={() => handleNavigation('favorite')}>Favorites</button>
+      <div className="button-grid">
+      <button className='navbutton' onClick={() => handleNavigation('home')}>Home</button>
       {/* Button to navigate to the 'preview' page */}
-      <button onClick={() => handleNavigation('preview')}>Preview</button>
+      <button className='navbutton' onClick={() => handleNavigation('preview')}>Details</button>
+      {/* Button to navigate to the 'favorite' page */}
+      <button className='navbutton' onClick={() => handleNavigation('favorite')}>Favorites</button>
       {/* Button to navigate to the 'history' page */}
-      <button onClick={() => handleNavigation('history')}>History</button>
+      <button className='navbutton' onClick={() => handleNavigation('history')}>History</button>
+      </div>
     </div>
   );
 };
