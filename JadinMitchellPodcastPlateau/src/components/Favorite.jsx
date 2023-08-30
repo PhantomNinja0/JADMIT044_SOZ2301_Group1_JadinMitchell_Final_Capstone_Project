@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Favorite = ({ favorites, setFavorites }) => {
   // Initialize local state for managing favorites, search term, and sort order
-  const [localFavorites, setLocalFavorites] = useState(favorites);
+  const [localFavorites, setLocalFavorites] = useState(favorites || "");
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOrder, setSortOrder] = useState('asc'); // Default sorting order is ascending
 
@@ -69,10 +69,16 @@ const Favorite = ({ favorites, setFavorites }) => {
       {filteredAndSortedFavorites.length > 0 ? (
         filteredAndSortedFavorites.map((episode, index) => (
           <div key={index} className="favorite-item">
+            <div className='deets'>
+            <img src={episode.image} alt=""/>
+            <h3>{episode.season}</h3>
+            <div className='fave-text'>
             <h3>{episode.title}</h3>
-            <h4>{episode.season}</h4>
             <p>{episode.description}</p>
-            <button onClick={() => removeFromFavorites(episode)}>Remove from Favorites</button>
+            <button className='fave-remove' onClick={() => removeFromFavorites(episode)}>Remove from Favorites</button>
+            </div>
+            </div>
+            
           </div>
         ))
       ) : (
