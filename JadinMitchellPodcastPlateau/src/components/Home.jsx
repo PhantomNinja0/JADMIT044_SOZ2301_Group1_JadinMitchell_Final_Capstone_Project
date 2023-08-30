@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-const Home = ({ onPodcastClick, selectedPodcast }) => {
+const Home = ({ onPodcastClick, selectedPodcast, onNavigate }) => {
   // State variables
   const [showPodcast, setPodcast] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -43,6 +43,11 @@ const Home = ({ onPodcastClick, selectedPodcast }) => {
   const handleGenreChange = (event) => {
     const selectedGenreValue = event.target.value;
     setSelectedGenre(selectedGenreValue);
+  };
+
+  const handleNavigation = (page) => {
+    // Call the 'onNavigate' function passed as a prop with the selected page
+    onNavigate(page);
   };
 
    // Format date as a string
@@ -99,7 +104,8 @@ const Home = ({ onPodcastClick, selectedPodcast }) => {
    // Render the Home component
   return (
     <div className="home-container">
-      <h1>All Shows</h1>
+      
+      <div className="filter-container">
       <div className="search-sort-container">
         <input
           type="text"
@@ -114,28 +120,27 @@ const Home = ({ onPodcastClick, selectedPodcast }) => {
           <option value="descDate">Sort Descending by Date</option>
         </select>
       </div>
-      <div className="genres-container">
-        <h2>Genres</h2>
-        <select value={selectedGenre} onChange={handleGenreChange}>
+      <h1>All Shows</h1>
+      <select className='genreSelect' value={selectedGenre} onChange={handleGenreChange}>
           <option value="">Select a Genre</option>
           {genreData.map((genre) => (
             <option key={genre} value={genre}>
               {genre}
             </option>
           ))}
-        </select>
+      </select>
+        
       </div>
       {loading ? (
         <p>Loading podcast list...</p>
       ) : (
         <ul className="show-list">
           {sortedPodcasts.map((show) => (
-            <li key={show.id} onClick={() => handlePodcastClick(show)}>
+            <li key={show.id} onMouseDown={() => handlePodcastClick(show)} onClick={() => handleNavigation('preview')}>
               <div className={`show-info ${show.id === selectedPodcast?.id ? 'selected' : ''}`}>
                 <img src={show.image} className="show-image" alt={show.title} />
                 <div className="show-details">
                   <h3 className="show-title">{show.title}</h3>
-                  <p className="show-description">{show.description}</p>
                   <p className="show-seasons">Numbers of seasons: {show.seasons}</p>
                   <p className="show-updated">Updated: {formatDate(show.updated)}</p>
                 </div>
